@@ -1,0 +1,20 @@
+services:
+  web01:
+    build:
+      context: ./app1
+    ports:
+      - "80:80"
+    container_name: app01
+    volumes:
+      - logvolume01:/var/log/nginx
+  web02:
+    build:
+      context: ./app2
+    ports:
+      - "8080:8080"
+    volumes:
+      - logvolume02:/var/log/apache2
+    container_name: app02
+volumes:
+  logvolume01: {}
+  logvolume02: {}
